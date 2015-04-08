@@ -51,12 +51,13 @@ class ManualInput
     output.text = ''
     anim = app.animate(6) do |i| 
       c = chars[i]
-      unless c
+      if c
+        output.text += c
+        pd.send_char(c)
+      else 
         trigger.show
         anim.stop
       end
-      output.text += c
-      pd.send_char(c)
     end
   end
 
