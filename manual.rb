@@ -6,9 +6,8 @@ Shoes.app do
     title 'TTM Shoes'
   end 
 
-  @input = ManualInput.new(
-    self,
-    'PLACEHOLDER'
-  )
+  ManualInput.new(self,PureData.new('3939'))
+  ManualInput.new(self,PureData.new('3838'))
+
 
 end
