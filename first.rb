@@ -2,13 +2,29 @@ require './application.rb'
 
 Shoes.app do
 
-  background '#5555FF' 
+  flow do
+    para 'x:'
+    @x = para 'XXX'
+  end
 
-  @push = button "Push me"
-  @note = para "Nothing pushed so far"
+  flow do
+    para 'y:'
+    @y = para 'YYY'
+  end
 
-  @push.click do
-    @note.replace "Aha! Click!"
+  motion do |left, top|
+    @x.replace(left)
+    @y.replace(top)
+  end
+
+  @shoes = image(
+    "http://spiralofhope.com/i/ruby-shoes--shoes.png",
+    top:  100,
+    left: 100
+  )
+  animate do |i|
+    @shoes.top += (-20..20).rand
+    @shoes.left += (-20..20).rand
   end
 
 end
